@@ -66,22 +66,22 @@ Shader "Unlit/GridSlide"
 
                 if (phase == 0)
                 {
-                    offset.x = lerp(-_SlideAmount, 0.0, phaseT); // phase 1 returns tiles horizontally
+                    offset.x = lerp(-_SlideAmount, 0.0, phaseT); // returns tiles horizontally
                 }
                 else if (phase == 1)
                 {
-                    offset.y = lerp(_SlideAmount, 0.0, phaseT);  // phase 2 returns tiles vertically
+                    offset.y = lerp(_SlideAmount, 0.0, phaseT);  // returns them vertically
                 }
                 else if (phase == 2)
                 {
-                    offset.x = lerp(_SlideAmount, 0.0, phaseT);  // phase 3 returns tiles from the opposite horizontal side
+                    offset.x = lerp(_SlideAmount, 0.0, phaseT);  // returns them from the opposite horizontal side
                 }
                 else
                 {
-                    offset.y = lerp(-_SlideAmount, 0.0, phaseT); // phase 4 returns tiles from the opposite vertical side
+                    offset.y = lerp(-_SlideAmount, 0.0, phaseT); // returns them from the opposite vertical side
                 }
 
-                float parity = fmod(cellID.x + cellID.y, 2.0);   // checkerboard-style alternation between neighboring cells
+                float parity = fmod(cellID.x + cellID.y, 2.0);   // checkerboard-ish alternation between neighboring cells
 
                 if (phase == 0)
                     offset.x *= (parity < 0.5 ? 1.0 : -1.0);     // alternate left/right movement by cell
@@ -95,7 +95,7 @@ Shader "Unlit/GridSlide"
                 float2 finalUV = (cellID + localUV) / gridCount; // rebuild the original UV from cell ID and local position
                 finalUV += offset;                               // shift the tile's sampled area for the sliding effect
 
-                fixed4 col = tex2D(_MainTex, finalUV);           // sample the image from the shifted UV
+                fixed4 col = tex2D(_MainTex, finalUV);           // sample the imperial legion soldier image from the shifted UV
                 return col;                                      // output the final color
             }
             ENDCG

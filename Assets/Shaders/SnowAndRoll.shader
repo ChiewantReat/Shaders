@@ -3,7 +3,7 @@ Shader "Custom/SnowAndRoll"
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}          // main image texture used by the shader
-        _ScrollSpeed ("Scroll Speed", Float) = 0.2     // how fast the image rolls sideways
+        _ScrollSpeed ("Scroll Speed", Float) = 0.2     // how fast the imperial legion soldier image rolls sideways
         _SnowAmount ("Snow Amount", Range(0,1)) = 0.25 // how visible the snow is
         _SnowScale ("Snow Scale", Float) = 80.0        // how dense the snow pattern is
         _SnowSpeed ("Snow Speed", Float) = 1.5         // how fast the snow animates
@@ -21,7 +21,7 @@ Shader "Custom/SnowAndRoll"
             #pragma fragment frag                      // tells Unity which function is the fragment shader
             #include "UnityCG.cginc"                   // includes Unity helper code and macros
 
-            sampler2D _MainTex;                        // lets us sample the main texture
+            sampler2D _MainTex;                        // lets me sample the main texture
             float4 _MainTex_ST;                        // stores tiling and offset values for the texture
             float _ScrollSpeed;                        // material-controlled scroll speed
             float _SnowAmount;                         // material-controlled snow intensity
